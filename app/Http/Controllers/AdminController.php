@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Game;
 
 class AdminController extends Controller
 {
@@ -34,7 +35,16 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $game = new Game();
+        $validates = $request->validate([
+            'icon' => 'required',
+            'title' => 'required',
+            'release-date' => 'required',
+            'genre' => 'required',
+            'app-store-url' => 'required',
+            'google-play-url' => 'required',
+            ]);
+        $game->fill($validates)->save();
     }
 
     /**
