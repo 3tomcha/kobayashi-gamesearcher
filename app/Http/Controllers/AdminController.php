@@ -14,7 +14,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.index', ['games' => Game::all()]);
     }
 
     /**
@@ -37,14 +37,18 @@ class AdminController extends Controller
     {
         $game = new Game();
         $validates = $request->validate([
-            'icon' => 'required',
+            'icon' => 'required|image',
             'title' => 'required',
-            'release-date' => 'required',
+            'release_date' => 'required',
             'genre' => 'required',
-            'app-store-url' => 'required',
-            'google-play-url' => 'required',
-            ]);
+            'app_store_url' => 'required',
+            'google_play_url' => 'required',
+        ]);
+        $path = $validates['icon']->store('public/image');
+        $validates['icon'] = basename($path);
         $game->fill($validates)->save();
+        
+        return redirect('/admin');
     }
 
     /**

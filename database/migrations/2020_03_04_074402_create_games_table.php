@@ -17,10 +17,10 @@ class CreateGamesTable extends Migration
             $table->id();
             $table->string('icon');
             $table->string('title');
-            $table->string('release-date');
+            $table->string('release_date');
             $table->string('genre');
-            $table->string('app-store-url');
-            $table->string('google-play-url');
+            $table->string('app_store_url');
+            $table->string('google_play_url');
             $table->timestamps();
         });
     }

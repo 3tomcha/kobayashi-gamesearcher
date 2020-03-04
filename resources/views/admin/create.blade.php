@@ -6,7 +6,7 @@
     <body>
         <h1>アプリを登録</h1>
         <div class="container">
-            <form method="POST" action="/admin">
+            <form method="POST" action="/admin" enctype="multipart/form-data">
                 @csrf
                 <dl>
                     <dt>アイコン</dt>
@@ -18,7 +18,7 @@
                 </dl>
                 <dl>
                     <dt>リリース日</dt>
-                    <dd><input type="date" name="release-date"/></dd>
+                    <dd><input type="date" name="release_date"/></dd>
                 </dl>
                 <dl>
                     <dt>ジャンル</dt>
@@ -31,11 +31,11 @@
                 </dl>
                 <dl>
                     <dt>App Store</dt>
-                    <dd><input type="text" name="app-store-url"/></dd>
+                    <dd><input type="text" name="app_store_url"/></dd>
                 </dl>
                 <dl>
                     <dt>Google Play</dt>
-                    <dd><input type="text" name="google-play-url"/></dd>
+                    <dd><input type="text" name="google_play_url"/></dd>
                 </dl>
                 <input type="submit" value="Submit"/>
             </form>
